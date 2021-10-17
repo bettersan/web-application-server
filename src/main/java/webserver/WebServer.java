@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 public class WebServer {
     private static final Logger log = LoggerFactory.getLogger(WebServer.class);
-    private static final int DEFAULT_PORT = 8080;
+    private static final int DEFAULT_PORT = 9406;
 
     public static void main(String args[]) throws Exception {
         int port = 0;
@@ -26,6 +26,7 @@ public class WebServer {
             // 클라이언트가 연결될때까지 대기한다.
             Socket connection;
             while ((connection = listenSocket.accept()) != null) {
+            	System.out.println("소켓연결~");
                 RequestHandler requestHandler = new RequestHandler(connection);
                 requestHandler.start();
             }
